@@ -47,7 +47,7 @@ async function loadData() {
 // Inicializar Fuse.js para búsqueda rápida
 function initializeFuse() {
     const options = {
-        keys: ['NIT','CODIGOCLIENTE','SAP','GRUPO VENDEDOR','REGION','CIUDAD','CANAL','RAZON SOCIAL','PDV','DIRECCION','BARRIO','POBLACION','SUBGRUPO'],
+        keys: ['SAP','Codigo PDV','Nombre PDV','Ciudad','Direccion','NOMBRE REGIONAL CLIENTE','CANAL','TIPOLOGIA'],
         threshold: 0.3,
     };
     fuse = new Fuse(filteredData, options);
@@ -85,20 +85,16 @@ function renderResults(results) {
                 <div class="result-item">
                     <h3>${result.PDV || 'N/A'}</h3>
                     <ul>
-                        <li><strong>SAP:</strong> ${result.SAP || 'N/A'}
+                        <strong>SAP:</strong> ${result.SAP || 'N/A'}
                         <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i>
-                        </li>
-                        <li><strong>NIT:</strong> ${result.NIT || 'N/A'}</li>
-                        <li><strong>Código Cliente:</strong> ${result.CODIGOCLIENTE || 'N/A'}</li>
-                        <li><strong>Distrito:</strong> ${result.CIUDAD || 'N/A'}</li>
-                        <li><strong>Población:</strong> ${result.POBLACION || 'N/A'}</li>
-                        <li><strong>Barrio:</strong> ${result.BARRIO || 'N/A'}</li>
-                        <li><strong>Dirección:</strong> ${result.DIRECCION || 'N/A'}</li>
-                        <li><strong>Región:</strong> ${result.REGION || 'N/A'}</li>
-                        <li><strong>Canal:</strong> ${result.CANAL || 'N/A'}</li>
-                        <li><strong>Razón Social:</strong> ${result['RAZON SOCIAL'] || 'N/A'}</li>
-
-                    </ul>
+                    </li>
+                    <li><strong>CÓDIGO PDV:</strong> ${result['Codigo PDV'] || 'N/A'}</li>
+                    <li><strong>NOMBRE PDV:</strong> ${result['Nombre PDV'] || 'N/A'}</li>
+                    <li><strong>CIUDAD:</strong> ${result.Ciudad || 'N/A'}</li>
+                    <li><strong>DIRECCIÓN:</strong> ${result.Direccion || 'N/A'}</li>
+                    <li><strong>REGIONAL:</strong> ${result['NOMBRE REGIONAL CLIENTE'] || 'N/A'}</li>
+                    <li><strong>CANAL:</strong> ${result.CANAL || 'N/A'}</li>
+                    <li><strong>TIPOLOGÍA:</strong> ${result.TIPOLOGIA || 'N/A'}</li>
                 </div>
             `;
         });
