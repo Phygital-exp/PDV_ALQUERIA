@@ -83,10 +83,10 @@ function renderResults(results) {
         results.forEach(result => {
             output += `
                 <div class="result-item">
-                    <h3>${result.PDV || 'N/A'}</h3>
+                    <h3>${result['Nombre PDV'] || 'N/A'}</h3>
                     <ul>
-                        <strong>SAP:</strong> ${result.SAP || 'N/A'}
-                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i>
+                        <li><strong>SAP:</strong> ${result.SAP || 'N/A'}
+                        <i class="material-icons copy-icon" onclick="copyToClipboard('${result.SAP}')">content_copy</i></li>
                     </li>
                     <li><strong>CÓDIGO PDV:</strong> ${result['Codigo PDV'] || 'N/A'}</li>
                     <li><strong>NOMBRE PDV:</strong> ${result['Nombre PDV'] || 'N/A'}</li>
